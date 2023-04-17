@@ -1,12 +1,24 @@
-import { useState } from 'react'
+import React, { Component } from 'react';
+import MyComponent from './MyComponent';
 
-export default function App() {
-  return (
-    <div>
-      <div className='header'>
-        <p>Hello!</p>
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickBtn = this.onClickBtn.bind(this);
+  }
+
+  onClickBtn() {
+    console.log('Button has been clicked!');
+  }
+
+  render() {
+    return (
+      <div>
+        <MyComponent title="React" onButtonClicked={this.onClickBtn} />
       </div>
-    </div>
-  )
+    );
+  }
 }
 
+export default App;
