@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MyComponent from './MyComponent';
+import Counter from './Counter';
 
 class App extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class App extends Component {
   }
 
   render() {
+    
     return (
       <div>
         <MyComponent title="React" onButtonClicked={this.onClickBtn} />
+        <Counter title="Counter" />
       </div>
     );
   }
