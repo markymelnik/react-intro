@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MyComponent from './MyComponent';
 import Counter from './Counter';
 
-class App extends Component {
+/* class App extends Component {
   constructor(props) {
     super(props);
 
@@ -22,6 +22,20 @@ class App extends Component {
       </div>
     );
   }
+} */
+
+function App() {
+
+  function onClickBtn() {
+    console.log('Button has been clicked!');
+  }
+
+  return (
+    <div>
+      <MyComponent title="React" onButtonClicked={onClickBtn} />
+      <Counter title="Counter" />
+    </div>
+  )
 }
 
 export default App;

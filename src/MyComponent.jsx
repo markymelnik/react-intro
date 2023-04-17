@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+/*
+
 class MyComponent extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -17,6 +18,18 @@ class MyComponent extends Component {
       </div>
     );
   }
+}
+
+*/
+
+function MyComponent({ title, onButtonClicked }) {
+
+  return(
+    <div>
+      <h1>{title}</h1>
+      <button onClick={onButtonClicked}>Click Me!</button>
+    </div>
+  ) 
 }
 
 export default MyComponent;
