@@ -8,12 +8,12 @@ class App extends Component {
     super();
 
     this.state = {
-      task: { 
+      task: {
         text: '',
-        id : uniqid()
+        id: uniqid(),
       },
       tasks: [],
-    };
+    }
   }
 
   handleChange = (e) => {
@@ -31,15 +31,22 @@ class App extends Component {
       tasks: this.state.tasks.concat(this.state.task),
       task: { 
         text: '',
-        id: uniqid()
-       },
+        id: uniqid(),
+      },
+    })
+  }
+
+  handleRemove = (taskId) => {
+    // const filteredTasks = this.state.tasks.filter(task => task.id !== taskId);
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.id !== taskId),
     })
   }
 
   render() {
-    
+
     const { task, tasks } = this.state;
-    
+
     return (
       <div>
         <form className="task-form" onSubmit={this.onSubmitTask}>
@@ -52,11 +59,9 @@ class App extends Component {
             autoComplete="off"
             required
           />
-          <button type="submit">
-            Add Task
-          </button>
+          <button type="submit">Add Task</button>
         </form>
-        <Overview tasks={tasks} />
+        <Overview tasks={tasks} removeTask={this.handleRemove} />
       </div>
     )
   }
