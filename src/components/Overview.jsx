@@ -1,23 +1,19 @@
-import React from 'react';
+import Task from './Task';
 
-const Overview = (props) => {
-
-  const { tasks, removeTask } = props;
+const Overview = ({ tasks, removeTask, editTask }) => {
 
   return (
-    <ul className="task-list">
-      {
-      tasks.map((task) => {
-        return (
-          <div key={task.id} className="list-item">
-            <button type="button" onClick={() => removeTask(task.id)}>X</button>
-            <li >{task.text}</li>
-          </div>
-        )
-      })
-      }
-    </ul>
-  )
-}
+    <div className= 'task-list'>
+      {tasks.map(task => (
+        <Task 
+          key={task.id} 
+          task={task} 
+          removeTask={removeTask} 
+          editTask={editTask} 
+        />
+      ))}
+    </div>
+  );
+};
 
 export default Overview;

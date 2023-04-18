@@ -37,9 +37,24 @@ class App extends Component {
   }
 
   handleRemove = (taskId) => {
-    // const filteredTasks = this.state.tasks.filter(task => task.id !== taskId);
     this.setState({
       tasks: this.state.tasks.filter(task => task.id !== taskId),
+    })
+  }
+
+  handleEdit = (taskId, newText) => {
+    this.setState({
+      tasks: 
+      this.state.tasks.map(task => {
+        if (task.id === taskId) {
+          return {
+            ...task,
+            text: newText
+          };
+        } else {
+          return task;
+        }
+      })
     })
   }
 
@@ -48,7 +63,7 @@ class App extends Component {
     const { task, tasks } = this.state;
 
     return (
-      <div>
+      <div className='task-container'>
         <form className="task-form" onSubmit={this.onSubmitTask}>
           <label htmlFor="taskInput">Enter Task</label>
           <input 
@@ -61,7 +76,7 @@ class App extends Component {
           />
           <button type="submit">Add Task</button>
         </form>
-        <Overview tasks={tasks} removeTask={this.handleRemove} />
+        <Overview tasks={tasks} removeTask={this.handleRemove} editTask={this.handleEdit} />
       </div>
     )
   }
