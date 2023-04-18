@@ -1,41 +1,65 @@
 import React, { Component } from 'react';
-import MyComponent from './MyComponent';
-import Counter from './Counter';
+import Overview from './components/Overview';
+import uniqid from 'uniqid';
+import './styles.css';
 
-/* class App extends Component {
-  constructor(props) {
-    super(props);
+class App extends Component {
+  constructor() {
+    super();
 
-    this.onClickBtn = this.onClickBtn.bind(this);
+    this.state = {
+      task: { 
+        text: '',
+        id : uniqid()
+      },
+      tasks: [],
+    };
   }
 
-  onClickBtn() {
-    console.log('Button has been clicked!');
+  handleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+      }
+    })
+  }
+
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    this.setState({
+      tasks: this.state.tasks.concat(this.state.task),
+      task: { 
+        text: '',
+        id: uniqid()
+       },
+    })
   }
 
   render() {
     
+    const { task, tasks } = this.state;
+    
     return (
       <div>
-        <MyComponent title="React" onButtonClicked={this.onClickBtn} />
-        <Counter title="Counter" />
+        <form className="task-form" onSubmit={this.onSubmitTask}>
+          <label htmlFor="taskInput">Enter Task</label>
+          <input 
+            onChange={this.handleChange}
+            value={task.text}
+            type="text" 
+            id="taskInput"
+            autoComplete="off"
+            required
+          />
+          <button type="submit">
+            Add Task
+          </button>
+        </form>
+        <Overview tasks={tasks} />
       </div>
-    );
+    )
   }
-} */
-
-function App() {
-
-  function onClickBtn() {
-    console.log('Button has been clicked!');
-  }
-
-  return (
-    <div>
-      <MyComponent title="React" onButtonClicked={onClickBtn} />
-      <Counter title="Counter" />
-    </div>
-  )
 }
 
 export default App;

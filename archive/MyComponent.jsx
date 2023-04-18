@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-/*
-
-class MyComponent extends Component {
+/* class MyComponent extends Component {
   constructor(props) {
     super(props);
   }
@@ -18,9 +16,7 @@ class MyComponent extends Component {
       </div>
     );
   }
-}
-
-*/
+} */
 
 function MyComponent({ title, onButtonClicked }) {
 

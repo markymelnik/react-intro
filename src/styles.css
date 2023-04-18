@@ -5,6 +5,14 @@
   text-align: center;
 }
 
-.header {
-  font-size: 25px;
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.task-list {
+  font-size: 20px;
+  text-align: left;
 }
