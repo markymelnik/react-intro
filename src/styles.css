@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 40px;
+}
 .task-container {
   display: flex;
   flex-direction: column;
@@ -19,6 +25,10 @@
   align-items: center;
   gap: 15px;
   margin-bottom: 30px;
+}
+
+.task-form > label {
+  font-size: 20px;
 }
 
 .task-list {

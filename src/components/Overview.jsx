@@ -1,9 +1,9 @@
 import Task from './Task';
 
-const Overview = ({ tasks, removeTask, editTask }) => {
+const Overview = ({ tasks, editTask, removeTask }) => {
 
   return (
-    <div className='task-list'>
+  <div className='task-list'>
       {tasks.map((task, index) => (
         <Task 
           key={task.id}

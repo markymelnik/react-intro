@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Overview from './components/Overview';
 import uniqid from 'uniqid';
-import './styles.css';
 
 function App() {
 
@@ -23,33 +22,28 @@ function App() {
   }
 
   const handleEdit = (taskId, newText) => {
-    setTasks(
-      tasks.map(task => {
-        if (task.id === taskId) {
-          return { ...task, text: newText };
-        } else {
-          return task;
-        }
-      })
-    )
+    setTasks(tasks.map(task => task.id === taskId ? { ...task, text: newText } : task));
   }
 
   return (
-    <div className='task-container'>
-      <form className='task-form' onSubmit={onSubmitTask}>
-        <label htmlFor='taskInput'>Enter Task</label>
-        <input
-         onChange={handleChange}
-         value={task.text}
-         type='text'
-         id='taskInput'
-         autoComplete='off'
-         required
-        />
-        <button type='submit'>Add Task</button>
-      </form>
-      <Overview tasks={tasks} removeTask={handleRemove} editTask={handleEdit} />
-    </div>
+    <>
+      <div className='header'>Tasks</div>
+      <div className='task-container'>
+        <form className='task-form' onSubmit={onSubmitTask}>
+          <label htmlFor='taskInput'>Enter Task</label>
+          <input
+          onChange={handleChange}
+          value={task.text}
+          type='text'
+          id='taskInput'
+          autoComplete='off'
+          required
+          />
+          <button type='submit'>Add Task</button>
+        </form>
+        <Overview tasks={tasks} removeTask={handleRemove} editTask={handleEdit} />
+      </div>
+    </>
   )
 }
 
