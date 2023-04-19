@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Task = ({ task, removeTask, editTask }) => {
+const Task = ({ task, index, removeTask, editTask }) => {
 
   const [editing, setEditing] = useState(false);
   const [newText, setNewText] = useState(task.text);
@@ -29,7 +29,7 @@ const Task = ({ task, removeTask, editTask }) => {
   else {
     return (
       <div className='task-item'>
-        <span>{task.text}</span>
+        <span>{index}. {task.text}</span>
         <div className='task-btns'>
           <button className='edit-btn' onClick={handleEdit}>Edit</button>
           <button onClick={() => removeTask(task.id)}>Remove</button>

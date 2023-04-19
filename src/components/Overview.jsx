@@ -3,13 +3,14 @@ import Task from './Task';
 const Overview = ({ tasks, removeTask, editTask }) => {
 
   return (
-    <div className= "task-list">
-      {tasks.map(task => (
+    <div className='task-list'>
+      {tasks.map((task, index) => (
         <Task 
           key={task.id}
-          task={task} 
-          removeTask={removeTask} 
-          editTask={editTask} 
+          task={task}
+          index={index + 1}
+          removeTask={removeTask}
+          editTask={editTask}
         />
       ))}
     </div>

@@ -4,7 +4,7 @@ import uniqid from 'uniqid';
 import './styles.css';
 
 function App() {
-  
+
   const [task, setTask] = useState({ text: '', id: uniqid() });
   const [tasks, setTasks] = useState([]);
 
@@ -31,22 +31,22 @@ function App() {
           return task;
         }
       })
-    );
+    )
   }
 
   return (
     <div className='task-container'>
-      <form className="task-form" onSubmit={onSubmitTask}>
-        <label htmlFor="taskInput">Enter Task</label>
-        <input 
-          onChange={handleChange}
-          value={task.text}
-          type="text" 
-          id="taskInput"
-          autoComplete="off"
-          required
+      <form className='task-form' onSubmit={onSubmitTask}>
+        <label htmlFor='taskInput'>Enter Task</label>
+        <input
+         onChange={handleChange}
+         value={task.text}
+         type='text'
+         id='taskInput'
+         autoComplete='off'
+         required
         />
-        <button type="submit">Add Task</button>
+        <button type='submit'>Add Task</button>
       </form>
       <Overview tasks={tasks} removeTask={handleRemove} editTask={handleEdit} />
     </div>
