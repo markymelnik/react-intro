@@ -38,4 +38,4 @@ const Task = ({ task, index, editTask, removeTask }) => {
   )
 }
 
-export default Task;
+export default Task;``
