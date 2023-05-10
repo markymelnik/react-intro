@@ -1,12 +1,5 @@
-import { Link } from 'react-router-dom';
+import React from "react";
 
-const App = () => {
-  return (
-    <div>
-      <h1>Hello from App</h1>
-      <Link to='/profile'>Go to Profile</Link>
-    </div>
-  );
-};
+const App = () => <h1>Our First Test</h1>;
 
 export default App;
